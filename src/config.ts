@@ -9,7 +9,7 @@ export const config = {
   originalGameUrl: "https://play2048.co/",
   phoneScaleFactorPixelData: 0.62,
   repoUrl: "https://github.com/",
-  swipeDistance: 100
+  swipeDistance: 40
 } as const;
 
 export type ConfigType = typeof config;
