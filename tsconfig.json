@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "outDir": "./dist/",
+    "noImplicitReturns": true,
+    "target": "ES6",
+    "allowJs": false,
+    "moduleResolution": "Node",
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    //"exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@bl": [
+        "./bl"
+      ],
+      "@components/*": [
+        "./components/*"
+      ],
+      "@i18n": [
+        "./i18n"
+      ],
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS",
+      "esModuleInterop": true
+    }
+  }
+}

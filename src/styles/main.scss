@@ -1,0 +1,83 @@
+@use "./themeDark.scss" as dark;
+@use "./themeLight.scss" as light;
+@use "./includes.scss" as i;
+
+* {
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+:root {
+  font-family: "Segoe UI", SegoeUI, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+
+  @media (prefers-color-scheme: dark) {
+    @include i.spread-map(dark.$theme-map);
+  }
+
+  @media (prefers-color-scheme: light) {
+    @include i.spread-map(light.$theme-map);
+  }
+
+  [data-theme="dark"] {
+    @include i.spread-map(dark.$theme-map);
+  }
+
+  [data-theme="light"] {
+    @include i.spread-map(light.$theme-map);
+  }
+
+  @include i.phone {
+    font-size: 14px;
+  }
+}
+
+body {
+  align-items: center;
+  background-color: i.$body--background-color;
+  display: flex;
+  flex-direction: column;
+  height: 99vh;
+  margin: 0;
+  padding: 0;
+  transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  > header,
+  > footer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: i.$body-header-footer--height;
+  }
+
+  > header {
+    justify-content: start;
+    order: 0;
+
+    > h1 {
+      color: i.$title--color;
+      font-size: i.$title--font-size;
+      margin: 0;
+    }
+  }
+
+  > main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    order: 1;
+  }
+
+  > footer {
+    justify-content: end;
+    order: 2;
+  }
+}
+
+[data-hidden] {
+  visibility: hidden;
+  opacity: 0;
+}

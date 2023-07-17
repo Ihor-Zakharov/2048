@@ -1,0 +1,63 @@
+@use "styles/includes.scss" as i;
+
+.pane {
+  $pane: &;
+  background-color: i.$pane--background-color;
+  border-radius: i.$border-radius--normal;
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(var(--pane-size), var(--dimention));
+  gap: var(--indent);
+  max-width: 520px;
+  margin: 0 auto;
+
+  font-size: var(--font-size);
+  padding: var(--indent);
+
+  > * {
+    float: left;
+    background-color: i.$tile-empty--background-color;
+    border-radius: i.$border-radius--small;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--dimention);
+    height: var(--dimention);
+
+    &:not(:nth-child(3n)) {
+      margin-right: var(--indent);
+    }
+  }
+
+  &__wrapper {
+    // height: 500px;
+    order: 1;
+    position: relative;
+    // width: 500px;
+
+    // @include i.phone {
+    //   width: 320px;
+    //   height: 320px;
+    // }
+
+    &[data-game-over] > #{$pane}__gameOver {
+      visibility: visible;
+    }
+  }
+
+  &__gameOver {
+    @include i.setRect(0, 0, 0, 0);
+    align-items: center;
+    background-color: i.$pane-gameOver--background-color;
+    color: i.$title--color;
+    display: flex;
+    font-size: 3.4rem;
+    font-weight: 700;
+    justify-content: center;
+    position: absolute;
+    visibility: hidden;
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "name": "2048",
+  "version": "1.0.0",
+  "description": "A fun and addictive puzzle game based on Gabriele Cirulli's 2048, featuring dark and light themes, different gameboard sizes like 3x3 and 5x5.",
+  "main": "main.ts",
+  "scripts": {
+    "build": "webpack --config ./scripts/webpack.production.ts",
+    "start": "webpack serve --config ./scripts/webpack.development.ts",
+    "lint-fix": "eslint --fix --ext .ts ."
+  },
+  "browserslist": {
+    "production": [
+      "defaults and supports es6-module and supports css-grid"
+    ],
+    "development": [
+      "last 1 versions"
+    ]
+  },
+  "keywords": [
+    "2048",
+    "game",
+    "play",
+    "2048 dark",
+    "play 2048",
+    "2048 3x3",
+    "2048 5x5",
+    "new 2048",
+    "puzzle",
+    "strategy",
+    "addictive"
+  ],
+  "author": "Ihor Zakharov",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "css-loader": "^6.8.1",
+    "eslint": "^8.45.0",
+    "eslint-plugin-sort-destructure-keys": "^1.5.0",
+    "eslint-webpack-plugin": "^4.0.1",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "ts-loader": "^9.4.4",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}

@@ -1,0 +1,43 @@
+@use "styles/includes.scss" as i;
+
+.messageConfirm {
+  align-items: center;
+  background-color: i.$body--background-color;
+  border-radius: i.$border-radius--normal;
+  color: i.$action--color;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 5rem;
+  justify-content: center;
+
+  @include i.phone {
+    border-radius: i.$border-radius--small;
+    padding: 1.8rem 3rem;
+  }
+
+  &__title {
+    color: i.$title--color;
+    font-size: 1.25em;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  &__buttonYes {
+    @include i.button(i.$action-secondary--background-color, i.$action-secondary--shadow-color);
+    min-width: 4rem;
+  }
+
+  &__buttonNo {
+    @include i.button(i.$action-primary--background-color, i.$action-primary--shadow-color);
+    min-width: 4rem;
+  }
+
+  button + button {
+    margin-left: 1rem;
+  }
+}

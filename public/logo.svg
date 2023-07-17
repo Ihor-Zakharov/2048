@@ -1,0 +1,18 @@
+<svg viewBox="0 0 512 512" width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <style> 
+    .digit {
+      font-family: "Segoe UI", SegoeUI, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      font-size: 242px;
+      font-weight: 700;
+    }
+  </style>
+  <rect x="0" y="0" width="512" height="512"  fill="#bbada0"/>
+  <rect x="4" y="4" width="248" height="248" rx="4" fill="#eee4da"/>
+  <rect x="260" y="4" width="248" height="248" rx="4" fill="#cdc1b4"/>
+  <rect x="4" y="260" width="248" height="248" rx="4" fill="#ede0c8"/>
+  <rect x="260" y="260" width="248" height="248" rx="4" fill="#f2b179"/>
+  <text x="57" y="212" class="digit" fill="#776e65">2</text>
+  <text x="317" y="212" class="digit" fill="#776e65">0</text>
+  <text x="57" y="468" class="digit" fill="#776e65">4</text>
+  <text x="313" y="468" class="digit" fill="#f9f6f2">8</text>
+</svg>

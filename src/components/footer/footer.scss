@@ -1,0 +1,20 @@
+@use "styles/includes.scss" as i;
+
+.footer {
+  color: i.$footer-text--color;
+
+  &__lines {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__line {
+    > a {
+      color: i.$footer-link--color;
+      text-decoration: none;
+    }
+
+    line-height: 1.3;
+  }
+}

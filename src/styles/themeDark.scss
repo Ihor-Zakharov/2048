@@ -1,0 +1,61 @@
+@function tile--box-shadow($size) {
+  @return 0 0 10px $size #00984890;
+}
+
+$action--color: #c9c9c9;
+$body--background-color: #1e1f24;
+$pane--background-color: #2e2f34;
+$tile-low--color: #252525;
+$tile-high--color: $action--color;
+
+$theme-map: (
+  // Action
+  "action--color": $action--color,
+  "action-primary--background-color": lighten($pane--background-color, 10%),
+  "action-primary--shadow-color": rgba(lighten($pane--background-color, 10%), 0.3),
+  "action-secondary--background-color": $pane--background-color,
+  "action-secondary--shadow-color": rgba($pane--background-color, 0.3),
+  "action-title--background-color": $pane--background-color,
+  "action-hover--background-color": lighten($pane--background-color, 15%),
+  // Body
+  "body--background-color": $body--background-color,
+  // Footer
+  "footer-text--color": darken($action--color, 40%),
+  "footer-link--color": darken($action--color, 20%),
+  // Mask
+  "mask--background-color": rgba(darken(#fff, 40%), 0.4),
+  // Pane
+  "pane--background-color": $pane--background-color,
+  "pane-gameOver--background-color": rgba($body--background-color, 0.9),
+  // Tile
+  "tile-2--color": $tile-low--color,
+  "tile-2--background-color": #7e7e7e,
+  "tile-4--color": $tile-low--color,
+  "tile-4--background-color": #586165,
+  "tile-8--color": $tile-high--color,
+  "tile-8--background-color": #3b5863,
+  "tile-16--color": $tile-high--color,
+  "tile-16--background-color": #244b5a,
+  "tile-32--color": $tile-high--color,
+  "tile-32--background-color": #1b5f56,
+  "tile-64--color": $tile-high--color,
+  "tile-64--background-color": #0e7c4f,
+  "tile-128--color": $tile-high--color,
+  "tile-128--background-color": #008048,
+  "tile-128--box-shadow": none,
+  "tile-256--color": $tile-high--color,
+  "tile-256--background-color": #008548,
+  "tile-256--box-shadow": tile--box-shadow(2px),
+  "tile-512--color": $tile-high--color,
+  "tile-512--background-color": #009048,
+  "tile-512--box-shadow": tile--box-shadow(3px),
+  "tile-1024--color": $tile-high--color,
+  "tile-1024--background-color": #009848,
+  "tile-1024--box-shadow": tile--box-shadow(4px),
+  "tile-2048--color": $tile-high--color,
+  "tile-2048--background-color": #00ff77,
+  "tile-2048--box-shadow": tile--box-shadow(6px),
+  "tile-empty--background-color": rgba(75, 79, 84, 0.5),
+  // Title
+  "title--color": #009848
+);

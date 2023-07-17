@@ -1,0 +1,81 @@
+@use "styles/includes.scss" as i;
+
+.tile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 700;
+  -webkit-user-select: none;
+  user-select: none;
+
+  &[data-value="2"] {
+    color: i.$tile-2--color;
+    background-color: i.$tile-2--background-color;
+    font-size: 5.5em;
+  }
+
+  &[data-value="4"] {
+    color: i.$tile-4--color;
+    background-color: i.$tile-4--background-color;
+    font-size: 5.5em;
+  }
+
+  &[data-value="8"] {
+    color: i.$tile-8--color;
+    background-color: i.$tile-8--background-color;
+    font-size: 5.5em;
+  }
+
+  &[data-value="16"] {
+    color: i.$tile-16--color;
+    background-color: i.$tile-16--background-color;
+    font-size: 5.5em;
+  }
+
+  &[data-value="32"] {
+    color: i.$tile-32--color;
+    background-color: i.$tile-32--background-color;
+    font-size: 5.5em;
+  }
+
+  &[data-value="64"] {
+    color: i.$tile-64--color;
+    background-color: i.$tile-64--background-color;
+    font-size: 5.5em;
+  }
+
+  &[data-value="128"] {
+    color: i.$tile-128--color;
+    background-color: i.$tile-128--background-color;
+    box-shadow: i.$tile-128--box-shadow;
+    font-size: 4.5em;
+  }
+
+  &[data-value="256"] {
+    color: i.$tile-256--color;
+    background-color: i.$tile-256--background-color;
+    box-shadow: i.$tile-256--box-shadow;
+    font-size: 4.5em;
+  }
+
+  &[data-value="512"] {
+    color: i.$tile-512--color;
+    background-color: i.$tile-512--background-color;
+    box-shadow: i.$tile-512--box-shadow;
+    font-size: 4.5em;
+  }
+
+  &[data-value="1024"] {
+    color: i.$tile-1024--color;
+    background-color: i.$tile-1024--background-color;
+    box-shadow: i.$tile-1024--box-shadow;
+    font-size: 3.5em;
+  }
+
+  &[data-value="2048"] {
+    color: i.$tile-2048--color;
+    background-color: i.$tile-2048--background-color;
+    box-shadow: i.$tile-2048--box-shadow;
+    font-size: 3.5em;
+  }
+}

@@ -1,0 +1,13 @@
+@use "styles/includes.scss" as i;
+
+.score {
+  @include i.action(i.$action-secondary--background-color);
+
+  &__text {
+    margin-right: 1rem;
+  }
+
+  & + & {
+    margin-left: 1rem;
+  }
+}

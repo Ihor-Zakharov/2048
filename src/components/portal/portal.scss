@@ -1,0 +1,24 @@
+@use "styles/includes.scss" as i;
+
+.portal {
+  &__mask,
+  &__modalContainer {
+    @include i.setRect(0, 0, 0, 0);
+    opacity: 1;
+    position: fixed;
+    visibility: visible;
+  }
+
+  &__mask {
+    background-color: i.$mask--background-color;
+    z-index: 1001;
+  }
+
+  &__modalContainer {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1002;
+  }
+}

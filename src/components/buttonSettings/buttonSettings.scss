@@ -1,0 +1,22 @@
+@use "styles/includes.scss" as i;
+
+.buttonSettings {
+  @include i.button(i.$action-secondary--background-color, i.$action-primary--shadow-color);
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  width: i.$action--height;
+
+  > span {
+    font-size: 1.5rem;
+  }
+
+  &--menuVisible {
+    background-color: i.$action-primary--background-color;
+    border-radius: i.$border-radius--small i.$border-radius--small 0 0;
+  }
+
+  @include i.phone {
+    width: i.$action--height * i.$phoneScaleFactor;
+  }
+}

@@ -1,0 +1,126 @@
+@mixin action($background-color) {
+  align-items: center;
+  background-color: $background-color;
+  border: none;
+  border-radius: $border-radius--small;
+  color: $action--color;
+  display: flex;
+  flex-direction: row;
+  height: $action--height;
+  min-width: $action--height;
+  padding: 0 10px;
+  transition: all 0.2s ease-in;
+
+  @include phone {
+    height: $action--height * $phoneScaleFactor;
+    min-width: $action--height * $phoneScaleFactor;
+  }
+}
+
+@mixin button($background-color, $shadow-color) {
+  @include action($background-color);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  justify-content: center;
+  outline: none;
+
+  &:hover {
+    @include shadow($shadow-color);
+  }
+}
+
+@mixin phone {
+  @media only screen and (max-width: 540px) {
+    @content;
+  }
+}
+
+@mixin setRect($top, $right, $bottom, $left) {
+  bottom: $bottom;
+  left: $left;
+  right: $right;
+  top: $top;
+}
+
+@mixin shadow($shadow-color) {
+  box-shadow: 0 0 8px 4px $shadow-color;
+}
+
+@mixin spread-map($map: ()) {
+  @each $key, $value in $map {
+    --#{$key}: #{$value};
+  }
+}
+
+// #region Action
+$action--color: var(--action--color);
+$action--height: 40px;
+$action-primary--background-color: var(--action-primary--background-color);
+$action-primary--shadow-color: var(--action-primary--shadow-color);
+$action-secondary--background-color: var(--action-secondary--background-color);
+$action-secondary--shadow-color: var(--action-secondary--shadow-color);
+$action-title--background-color: var(--action-title--background-color);
+$action-hover--background-color: var(--action-hover--background-color);
+// #endregion
+
+// #region Body
+$body--background-color: var(--body--background-color);
+$body-header-footer--height: 100px;
+// #endregion
+
+// #region Footer
+$footer-text--color: var(--footer-text--color);
+$footer-link--color: var(--footer-link--color);
+// #endregion
+
+// #region Mask
+$mask--background-color: var(--mask--background-color);
+// #endregion
+
+// #region Pane
+$pane--background-color: var(--pane--background-color);
+$pane-gameOver--background-color: var(--pane-gameOver--background-color);
+// #endregion
+
+// #region Tile
+$tile-2--color: var(--tile-2--color);
+$tile-2--background-color: var(--tile-2--background-color);
+$tile-4--color: var(--tile-4--color);
+$tile-4--background-color: var(--tile-4--background-color);
+$tile-8--color: var(--tile-8--color);
+$tile-8--background-color: var(--tile-8--background-color);
+$tile-16--color: var(--tile-16--color);
+$tile-16--background-color: var(--tile-16--background-color);
+$tile-32--color: var(--tile-32--color);
+$tile-32--background-color: var(--tile-32--background-color);
+$tile-64--color: var(--tile-64--color);
+$tile-64--background-color: var(--tile-64--background-color);
+$tile-128--color: var(--tile-128--color);
+$tile-128--background-color: var(--tile-128--background-color);
+$tile-128--box-shadow: var(--tile-128--box-shadow);
+$tile-256--color: var(--tile-256--color);
+$tile-256--background-color: var(--tile-256--background-color);
+$tile-256--box-shadow: var(--tile-256--box-shadow);
+$tile-512--color: var(--tile-512--color);
+$tile-512--background-color: var(--tile-512--background-color);
+$tile-512--box-shadow: var(--tile-512--box-shadow);
+$tile-1024--color: var(--tile-1024--color);
+$tile-1024--background-color: var(--tile-1024--background-color);
+$tile-1024--box-shadow: var(--tile-1024--box-shadow);
+$tile-2048--color: var(--tile-2048--color);
+$tile-2048--background-color: var(--tile-2048--background-color);
+$tile-2048--box-shadow: var(--tile-2048--box-shadow);
+$tile-empty--background-color: var(--tile-empty--background-color);
+// #endregion
+
+// #region Title
+$title--color: var(--title--color);
+$title--font-size: 5rem;
+// #endregion
+
+$border-radius--normal: 6px;
+$border-radius--small: 3px;
+
+$phoneScaleFactor: 0.7;

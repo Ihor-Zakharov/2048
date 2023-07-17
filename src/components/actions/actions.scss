@@ -1,0 +1,25 @@
+@use "styles/includes.scss" as i;
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  width: 100%;
+
+  &--top {
+    margin-bottom: 1rem;
+    order: 0;
+  }
+
+  &--bottom {
+    justify-content: center;
+    margin-top: 1rem;
+    order: 2;
+  }
+
+  &__scores {
+    display: flex;
+    flex: 1;
+    justify-content: end;
+  }
+}

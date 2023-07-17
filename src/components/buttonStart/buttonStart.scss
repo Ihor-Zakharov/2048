@@ -1,0 +1,5 @@
+@use "styles/includes.scss" as i;
+
+.buttonStart {
+  @include i.button(i.$action-primary--background-color, i.$action-primary--shadow-color);
+}

@@ -1,0 +1,49 @@
+@use "styles/includes.scss" as i;
+
+.popupMenu {
+  @include i.shadow(i.$action-primary--shadow-color);
+  background-color: i.$action-primary--background-color;
+  border-radius: 0 i.$border-radius--small i.$border-radius--small i.$border-radius--small;
+  bottom: 0;
+  color: i.$action--color;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  position: absolute;
+  transform: translateY(100%);
+  transition: all 0.25s ease-in-out;
+  width: 12em;
+  z-index: 2;
+
+  > li {
+    text-align: left;
+
+    > div {
+      background-color: i.$action-title--background-color;
+      font-weight: 700;
+      padding: 0.5rem 1rem 0.5em 2rem;
+    }
+
+    > ul {
+      list-style: none;
+      padding: 0;
+
+      > li {
+        padding: 0.5rem 1rem 0.5em 2rem;
+        text-align: left;
+        transition: background-color 0.1s ease-in-out;
+
+        &:hover {
+          background-color: i.$action-hover--background-color;
+        }
+
+        &[data-selected]::before {
+          content: "✓";
+          position: absolute;
+          left: 0.75rem;
+        }
+      }
+    }
+  }
+}
