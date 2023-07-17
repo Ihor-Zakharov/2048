@@ -8,7 +8,7 @@ export const config = {
   darkGameUrl: "https://theoddesy.github.io/2048/",
   originalGameUrl: "https://play2048.co/",
   phoneScaleFactorPixelData: 0.62,
-  repoUrl: "https://github.com/",
+  repoUrl: "https://github.com/Ihor-Zakharov/2048",
   swipeDistance: 40
 } as const;
 
