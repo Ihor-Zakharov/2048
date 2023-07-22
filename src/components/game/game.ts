@@ -8,10 +8,40 @@ import { MessageConfirm } from "@components/messageConfirm/messageConfirm";
 import { Pane } from "@components/pane/pane";
 import { FnModalActivator, Portal } from "@components/portal/portal";
 import { t } from "@i18n";
-import { config } from "config";
+import * as Hammer from "hammerjs";
+
+interface DirectionDescriptor
+{
+  direction: BL.MovementDirection;
+  key: string;
+  swipe: number;
+}
 
 export class Game extends Control<"body">
 {
+  private static readonly directionDescriptors: DirectionDescriptor[] = [
+    {
+      direction: BL.MovementDirection.Down,
+      key: "ArrowDown",
+      swipe: Hammer.DIRECTION_DOWN
+    },
+    {
+      direction: BL.MovementDirection.Left,
+      key: "ArrowLeft",
+      swipe: Hammer.DIRECTION_LEFT
+    },
+    {
+      direction: BL.MovementDirection.Right,
+      key: "ArrowRight",
+      swipe: Hammer.DIRECTION_RIGHT
+    },
+    {
+      direction: BL.MovementDirection.Up,
+      key: "ArrowUp",
+      swipe: Hammer.DIRECTION_UP
+    },
+  ];
+
   private readonly actionsBottom: ActionsBottom;
   private readonly actionsTop: ActionsTop;
   private readonly fnMessageConfirmVisible: FnModalActivator<boolean>;
@@ -79,7 +109,7 @@ export class Game extends Control<"body">
     document.addEventListener("keyup", event =>
     {
       event.preventDefault();
-      this.handleKeyUp(event.key);
+      this.handleMovement(d => d.key === event.key);
     });
   }
 
@@ -102,61 +132,22 @@ export class Game extends Control<"body">
 
     pane.setParent(this.main);
 
-    let touchFrom: Touch | undefined = undefined;
-
-    pane.paneElement.addEventListener("touchstart", event =>
-    {
-      event.preventDefault();
-      touchFrom = event.touches[0];
-    });
-
-    pane.paneElement.addEventListener("touchend", event =>
-    {
-      if (touchFrom !== undefined)
-      {
-        const touchTo = event.changedTouches[0];
-        const deltaX = touchTo.clientX - touchFrom.clientX;
-        const deltaY = touchTo.clientY - touchFrom.clientY;
-        this.handlePossibleSwipe(deltaX, deltaY, BL.MovementDirection.Right, BL.MovementDirection.Left);
-        this.handlePossibleSwipe(deltaY, deltaX, BL.MovementDirection.Down, BL.MovementDirection.Up);
-        touchFrom = undefined;
-      }
-    });
+    const hammerManager = new Hammer.Manager(pane.paneElement);
+    hammerManager.add(new Hammer.Swipe({ velocity: 0.2 }));
+    hammerManager.on("swipe", e => this.handleMovement(d => d.swipe === e.direction));
 
     return pane;
   }
 
-  private handleKeyUp(key: string): void
+  private handleMovement(fnCondition: (directionDescriptor: DirectionDescriptor) => boolean): void
   {
     if (!this.messageConfirmShown)
     {
-      switch (key)
+      const directionDescriptor = Game.directionDescriptors.find(fnCondition);
+      if (directionDescriptor !== undefined)
       {
-        case "ArrowUp": {
-          this.pane.move(BL.MovementDirection.Up);
-          break;
-        }
-        case "ArrowDown": {
-          this.pane.move(BL.MovementDirection.Down);
-          break;
-        }
-        case "ArrowRight": {
-          this.pane.move(BL.MovementDirection.Right);
-          break;
-        }
-        case "ArrowLeft": {
-          this.pane.move(BL.MovementDirection.Left);
-          break;
-        }
+        this.pane.move(directionDescriptor.direction);
       }
-    }
-  }
-
-  private handlePossibleSwipe(delta1: number, delta2: number, movement1: BL.MovementDirection, movement2: BL.MovementDirection)
-  {
-    if (Math.abs(delta1) > config.swipeDistance && Math.abs(delta2) < config.swipeDistance)
-    {
-      this.pane.move(delta1 > 0 ? movement1 : movement2);
     }
   }
 
