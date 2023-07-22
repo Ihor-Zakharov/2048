@@ -43,26 +43,30 @@ body {
   padding: 0;
   transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
 
-  > header,
-  > footer {
+  >header,
+  >footer {
     align-items: center;
     display: flex;
     flex-direction: column;
     height: i.$body-header-footer--height;
   }
 
-  > header {
+  >header {
     justify-content: start;
     order: 0;
 
-    > h1 {
+    >h1 {
       color: i.$title--color;
       font-size: i.$title--font-size;
       margin: 0;
+
+      @include i.phoneSmall {
+        font-size: calc(i.$title--font-size * 0.6);
+      }
     }
   }
 
-  > main {
+  >main {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -71,7 +75,7 @@ body {
     order: 1;
   }
 
-  > footer {
+  >footer {
     justify-content: end;
     order: 2;
   }
